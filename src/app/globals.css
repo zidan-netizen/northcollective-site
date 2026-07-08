@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-gold: #FFFFFF;
+  --color-gold-light: #F0F0F0;
+  --color-gold-dark: #CCCCCC;
+  --color-bg: #0A0A0A;
+  --color-bg-card: #1a1a1a;
+  --color-bg-elevated: #151515;
+  --color-text: #ffffff;
+  --color-text-muted: #999999;
+  --color-border: #2a2a2a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0A0A0A;
+  color: #ffffff;
+  font-family: var(--font-poppins), 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 3px;
+}
+
+
+/* Announcement Bar */
+.announcement-track {
+  display: flex;
+  width: max-content;
+  animation: announcement-scroll 20s linear infinite;
+}
+@keyframes announcement-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Instagram Marquee */
+.ig-marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+.ig-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ig-scroll 30s linear infinite;
+}
+@keyframes ig-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ig-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Review Marquee */
+.review-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: review-scroll 35s linear infinite;
+}
+@keyframes review-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.review-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes staggerIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+
+@keyframes slideInLeftDrawer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+.animate-slide-in-left { animation: slideInLeftDrawer 0.3s ease-out forwards; }
+.animate-slide-left { animation: slideInLeft 0.8s ease-out forwards; }
+.animate-slide-right { animation: slideInRight 0.8s ease-out forwards; }
+
+.animate-stagger-in { animation: staggerIn 0.6s ease-out forwards; opacity: 0; }
+
+.animation-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animation-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animation-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animation-delay-400 { animation-delay: 0.4s; opacity: 0; }
+.animation-delay-500 { animation-delay: 0.5s; opacity: 0; }
+.animation-delay-600 { animation-delay: 0.6s; opacity: 0; }
+.animation-delay-800 { animation-delay: 0.8s; opacity: 0; }
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF, #CCCCCC, #FFFFFF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-shimmer-bg {
+  background: linear-gradient(90deg, #FFFFFF 0%, #CCCCCC 50%, #FFFFFF 100%);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Product card hover overlay */
+.product-card:hover .product-overlay { opacity: 1; }
+.product-card:hover .product-image { transform: scale(1.05); }
+
+.brand-marquee { overflow: hidden; width: 100%; }
+.brand-marquee-track {
+  display: flex;
+  animation: brand-scroll 6s linear infinite;
+  width: fit-content;
+}
+@keyframes brand-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-glow-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #CCCCCC 40%, #FFFFFF 60%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+  animation: hero-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes hero-shimmer {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2)); }
+  50% { filter: drop-shadow(0 0 50px rgba(255, 255, 255, 0.4)); }
+}
+
+.ig-highlight-ring {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
